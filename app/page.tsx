@@ -29,10 +29,7 @@ export default function HomePage() {
       {/* 3. About KKN with overlapping image composition */}
       <About />
 
-      {/* 4. Interactive Map Section */}
-      <MapSection />
-
-      {/* 5. First parallax banner — Village Profile teaser */}
+      {/* 4. First parallax banner — Village Profile teaser */}
       <ParallaxBanner
         imageUrl="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2000&auto=format&fit=crop"
         imageAlt="Pemandangan Desa Bengkulu"
@@ -41,6 +38,9 @@ export default function HomePage() {
         overlayColor="from-gelap/85 via-hijau-tua/60 to-transparent"
         height="md"
       />
+
+      {/* 5. Interactive Map Section */}
+      <MapSection />
 
       {/* 6. Work Programs grid */}
       <Programs />

@@ -17,7 +17,6 @@ export const SITE_URL = 'https://kkn-profile.vercel.app';
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Beranda', href: '/' },
   { label: 'Tentang KKN', href: '/tentang' },
-  { label: 'Profil Desa', href: '/profil-desa' },
   { label: 'Program Kerja', href: '/program' },
   { label: 'Timeline', href: '/timeline' },
   { label: 'Galeri', href: '/galeri' },
