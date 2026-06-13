@@ -1,26 +1,291 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================================
+   KKN Profile — Design System v3.0
+   Premium Parallax Edition — Inspired by UNDP, WWF, WHO web presence
+   ============================================================================ */
+
+/* ============================================================================
+   1. CSS CUSTOM PROPERTIES
+   ============================================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAFAF8;
+  --foreground: #111111;
+
+  /* Section spacing */
+  --space-section-sm: 5rem;
+  --space-section-md: 7rem;
+  --space-section-lg: 9rem;
 }
+
+.dark {
+  --background: #0D0D0D;
+  --foreground: #F5F1EB;
+
+  --color-kapur: #181818;
+  --color-kapur-gelap: #202020;
+  --color-gelap: #F5F1EB;
+  --color-gelap-muda: #E8E8E8;
+  --color-tanah: #BCA68D;
+  --color-tanah-muda: #D4C3A3;
+}
+
+/* ============================================================================
+   2. TAILWIND v4 @theme — Design Tokens
+   ============================================================================ */
 
 @theme inline {
+
+  /* Primary greens */
+  --color-hijau-tua: #1B4332;
+  --color-hijau-muda: #2D6A4F;
+  --color-hijau-terang: #40916C;
+  --color-hijau-segar: #52B788;
+
+  /* Accent gold */
+  --color-emas: #D4A843;
+  --color-emas-muda: #E8C96A;
+  --color-emas-tua: #B8922E;
+
+  /* Neutrals */
+  --color-kapur: #FAFAF8;
+  --color-kapur-gelap: #EDE8DF;
+  --color-tanah: #8B7355;
+  --color-tanah-muda: #A89279;
+  --color-gelap: #111111;
+  --color-gelap-muda: #1F1F1F;
+  --color-abu: #6B7280;
+  --color-abu-muda: #9CA3AF;
+
+  /* Semantic */
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  --color-info: #2563EB;
+
+  /* Background / Foreground */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+
+  /* Typography */
+  --font-sans: var(--font-plus-jakarta-sans);
   --font-mono: var(--font-geist-mono);
+
+  --font-size-hero: clamp(3rem, 6vw, 5.5rem);
+  --font-size-hero--line-height: 1.05;
+  --font-size-display: clamp(2rem, 4vw, 3.5rem);
+  --font-size-display--line-height: 1.1;
+  --font-size-heading: clamp(1.5rem, 3vw, 2.25rem);
+  --font-size-heading--line-height: 1.2;
+  --font-size-subheading: 1.25rem;
+  --font-size-subheading--line-height: 1.4;
+  --font-size-body: 1rem;
+  --font-size-body--line-height: 1.75;
+  --font-size-caption: 0.875rem;
+  --font-size-caption--line-height: 1.5;
+  --font-size-label: 0.75rem;
+  --font-size-label--line-height: 1.5;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.10);
+  --shadow-xl: 0 16px 40px rgba(0,0,0,0.12);
+  --shadow-2xl: 0 24px 60px rgba(0,0,0,0.16);
+  --shadow-card: 0 2px 8px rgba(27,67,50,0.06), 0 8px 24px rgba(27,67,50,0.04);
+  --shadow-card-hover: 0 8px 32px rgba(27,67,50,0.12);
+  --shadow-glow-emas: 0 0 30px rgba(212,168,67,0.35);
+  --shadow-glow-hijau: 0 0 30px rgba(64,145,108,0.25);
+
+  /* Radii */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --radius-3xl: 2.5rem;
+  --radius-full: 9999px;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================================================
+   3. GLOBAL BASE STYLES
+   ============================================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-emas);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Text selection */
+::selection {
+  background: var(--color-hijau-tua);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-kapur-gelap); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-tanah); }
+
+/* ============================================================================
+   4. LAYOUT UTILITIES
+   ============================================================================ */
+
+.section-padding {
+  padding-top: var(--space-section-sm);
+  padding-bottom: var(--space-section-sm);
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: var(--space-section-md);
+    padding-bottom: var(--space-section-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: var(--space-section-lg);
+    padding-bottom: var(--space-section-lg);
+  }
+}
+
+/* ============================================================================
+   5. COMPONENT UTILITIES
+   ============================================================================ */
+
+.accent-line {
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background: var(--color-emas);
+}
+
+.accent-line--center { margin-inline: auto; }
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Gradient overlays */
+.gradient-hero {
+  background: linear-gradient(
+    135deg,
+    rgba(27, 67, 50, 0.95) 0%,
+    rgba(27, 67, 50, 0.75) 50%,
+    rgba(27, 67, 50, 0.5) 100%
+  );
+}
+
+.gradient-dark {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+}
+
+/* Noise texture overlay */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* Pattern grid */
+.pattern-grid {
+  background-image: 
+    linear-gradient(var(--color-kapur-gelap) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-kapur-gelap) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.4;
+}
+
+/* Dot pattern */
+.pattern-dots {
+  background-image: radial-gradient(circle, var(--color-tanah) 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+}
+
+/* Tag/badge base */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-label);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Category color pills */
+.cat-pendidikan   { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+.cat-kesehatan    { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
+.cat-lingkungan   { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
+.cat-ekonomi      { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; }
+.cat-infrastruktur{ background: #FFF7ED; color: #9A3412; border: 1px solid #FDBA74; }
+.cat-sosial-budaya{ background: #FDF4FF; color: #7E22CE; border: 1px solid #E9D5FF; }
+
+.dark .cat-pendidikan   { background: #1E3A5F; color: #93C5FD; border-color: #1E40AF; }
+.dark .cat-kesehatan    { background: #14532D; color: #86EFAC; border-color: #166534; }
+.dark .cat-lingkungan   { background: #064E3B; color: #6EE7B7; border-color: #065F46; }
+.dark .cat-ekonomi      { background: #451A03; color: #FCD34D; border-color: #92400E; }
+.dark .cat-infrastruktur{ background: #431407; color: #FDBA74; border-color: #9A3412; }
+.dark .cat-sosial-budaya{ background: #3B0764; color: #D8B4FE; border-color: #7E22CE; }
