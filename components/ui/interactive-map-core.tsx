@@ -202,6 +202,7 @@ export const AdvancedMap = ({
   const [userLocation, setUserLocation] = useState<any>(null);
   const [searchResult, setSearchResult] = useState<any>(null);
   const [clickedLocation, setClickedLocation] = useState<any>(null);
+  const [routePolyline, setRoutePolyline] = useState<any>(null);
 
   // Handle layer toggling
   const handleToggleLayer = useCallback((layerType: string) => {
@@ -223,8 +224,61 @@ export const AdvancedMap = ({
           console.error('Geolocation error:', error);
         }
       );
+    } else {
+      alert('Geolokasi tidak didukung oleh browser Anda.');
     }
   }, []);
+
+  // Get route from user to destination
+  const handleGetRoute = useCallback(async () => {
+    if (!navigator.geolocation) {
+      alert('Geolokasi tidak didukung oleh browser Anda.');
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        setUserLocation([latitude, longitude]);
+        
+        try {
+          const destLat = center[0];
+          const destLng = center[1];
+          // OSRM expects longitude,latitude
+          const response = await fetch(
+            `https://router.project-osrm.org/route/v1/driving/${longitude},${latitude};${destLng},${destLat}?geometries=geojson`
+          );
+          const data = await response.json();
+          
+          if (data.routes && data.routes.length > 0) {
+            // GeoJSON coordinates are [lon, lat], Leaflet needs [lat, lon]
+            const coords = data.routes[0].geometry.coordinates.map((coord: any) => [coord[1], coord[0]]);
+            setRoutePolyline({
+              id: 'route',
+              positions: coords,
+              style: { color: '#0ea5e9', weight: 4, opacity: 0.8 },
+              popup: `Jarak: ${(data.routes[0].distance / 1000).toFixed(2)} km, Waktu: ${Math.round(data.routes[0].duration / 60)} menit`
+            });
+          }
+        } catch (error) {
+          console.error('Gagal mendapatkan rute:', error);
+          alert('Gagal mendapatkan rute, silakan coba lagi.');
+        }
+      },
+      (error) => {
+        console.error('Geolocation error:', error);
+        alert('Gagal mendapatkan lokasi Anda. Pastikan izin lokasi diberikan.');
+      }
+    );
+  }, [center]);
+
+  // Expose routing function via custom controls or map click
+  useEffect(() => {
+    // We can dispatch a custom event or pass this handler up, but for now we'll listen to a custom window event
+    const handleRouteEvent = () => handleGetRoute();
+    window.addEventListener('request-route', handleRouteEvent);
+    return () => window.removeEventListener('request-route', handleRouteEvent);
+  }, [handleGetRoute]);
 
   // Handle map click
   const handleMapClick = useCallback((latlng: any) => {
@@ -396,6 +450,17 @@ export const AdvancedMap = ({
             {polyline.popup && <Popup>{polyline.popup}</Popup>}
           </Polyline>
         ))}
+
+        {/* Route Polyline (OSRM) */}
+        {routePolyline && (
+          <Polyline
+            key={routePolyline.id}
+            positions={routePolyline.positions}
+            pathOptions={routePolyline.style}
+          >
+            {routePolyline.popup && <Popup>{routePolyline.popup}</Popup>}
+          </Polyline>
+        )}
       </MapContainer>
     </div>
   );

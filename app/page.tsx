@@ -8,6 +8,7 @@ import { Timeline } from '@/components/Timeline';
 import { Gallery } from '@/components/Gallery';
 import { Team } from '@/components/Team';
 import { CTA } from '@/components/CTA';
+import { MapSection } from '@/components/MapSection';
 import { impactStats } from '@/lib/data/village';
 
 export const metadata: Metadata = {
@@ -28,7 +29,10 @@ export default function HomePage() {
       {/* 3. About KKN with overlapping image composition */}
       <About />
 
-      {/* 4. First parallax banner — Village Profile teaser */}
+      {/* 4. Interactive Map Section */}
+      <MapSection />
+
+      {/* 5. First parallax banner — Village Profile teaser */}
       <ParallaxBanner
         imageUrl="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2000&auto=format&fit=crop"
         imageAlt="Pemandangan Desa Bengkulu"
@@ -38,10 +42,10 @@ export default function HomePage() {
         height="md"
       />
 
-      {/* 5. Work Programs grid */}
+      {/* 6. Work Programs grid */}
       <Programs />
 
-      {/* 6. Second parallax banner — Programs teaser */}
+      {/* 7. Second parallax banner — Programs teaser */}
       <ParallaxBanner
         imageUrl="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2000&auto=format&fit=crop"
         imageAlt="Warga desa bersama mahasiswa KKN"
@@ -51,16 +55,16 @@ export default function HomePage() {
         height="md"
       />
 
-      {/* 7. Activity Timeline */}
+      {/* 8. Activity Timeline */}
       <Timeline />
 
-      {/* 8. Photo Gallery with lightbox */}
+      {/* 9. Photo Gallery with lightbox */}
       <Gallery />
 
-      {/* 9. Team Members */}
+      {/* 10. Team Members */}
       <Team />
 
-      {/* 10. Parallax CTA / Contact teaser */}
+      {/* 11. Parallax CTA / Contact teaser */}
       <CTA />
     </>
   );
