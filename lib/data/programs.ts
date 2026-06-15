@@ -1,148 +1,126 @@
 // ============================================================================
 // KKN Profile — Work Program Data
-// All KKN work programs organized by category.
-// Replace placeholder data with actual program information.
+// Program kerja KKN Kelompok 27 Universitas Bengkulu Periode 108
+// Desa Lokasi Baru, Kec. Air Periukan, Kab. Seluma, Bengkulu
 // ============================================================================
 
 import type { Program, ProgramCategory } from '@/lib/types';
 
 export const programs: Program[] = [
-  // --- Pendidikan -----------------------------------------------------------
+  // --- Lingkungan -----------------------------------------------------------
   {
     id: 'prog-001',
-    title: 'Bimbingan Belajar Anak SD',
-    slug: 'bimbingan-belajar-anak-sd',
-    category: 'pendidikan',
-    status: 'selesai',
+    title: 'Pembuatan Ekoenzim',
+    slug: 'pembuatan-ekoenzim',
+    category: 'lingkungan',
+    status: 'direncanakan',
     description:
-      'Program bimbingan belajar untuk anak-anak Sekolah Dasar di desa, membantu meningkatkan kemampuan membaca, menulis, dan berhitung.',
-    image: '/images/programs/bimbel.jpg',
-    date: '2024-07-15',
-    participants: 30,
-    location: 'Balai Desa',
+      'Program pemanfaatan limbah organik rumah tangga menjadi ekoenzim yang bermanfaat sebagai cairan pembersih alami, pupuk organik, serta pengurai limbah ramah lingkungan.',
+    image: '/images/programs/ekoenzim.jpg',
+    date: '2026-06-17',
+    location: 'Desa Lokasi Baru',
   },
   {
     id: 'prog-002',
-    title: 'Sosialisasi Literasi Digital',
-    slug: 'sosialisasi-literasi-digital',
-    category: 'pendidikan',
-    status: 'selesai',
+    title: 'Pemetaan Kondisi Pengelolaan Sampah Desa',
+    slug: 'pemetaan-pengelolaan-sampah',
+    category: 'lingkungan',
+    status: 'direncanakan',
     description:
-      'Pelatihan penggunaan teknologi digital untuk warga desa, termasuk pemanfaatan media sosial dan internet secara bijak.',
-    image: '/images/programs/literasi-digital.jpg',
-    date: '2024-07-20',
-    participants: 25,
-    location: 'Aula Desa',
+      'Kegiatan pemetaan untuk mengidentifikasi kondisi pengelolaan sampah serta titik-titik yang berpotensi menjadi sumber pencemaran lingkungan di desa.',
+    image: '/images/programs/pemetaan-sampah.jpg',
+    date: '2026-06-20',
+    location: 'Desa Lokasi Baru',
+  },
+  {
+    id: 'prog-003',
+    title: 'Gotong Royong Rutin',
+    slug: 'gotong-royong-rutin',
+    category: 'lingkungan',
+    status: 'direncanakan',
+    description:
+      'Kegiatan kerja bakti bersama masyarakat yang dilaksanakan secara rutin untuk menjaga kebersihan lingkungan serta mempererat hubungan sosial antara mahasiswa dan masyarakat.',
+    image: '/images/programs/gotong-royong.jpg',
+    date: '2026-06-24',
+    location: 'Desa Lokasi Baru',
+  },
+  {
+    id: 'prog-004',
+    title: 'Pembentukan dan Edukasi Bank Sampah',
+    slug: 'bank-sampah',
+    category: 'lingkungan',
+    status: 'direncanakan',
+    description:
+      'Program edukasi dan pendampingan masyarakat dalam memilah serta mengelola sampah agar memiliki nilai ekonomis dan dapat dimanfaatkan kembali.',
+    image: '/images/programs/bank-sampah.jpg',
+    date: '2026-07-01',
+    location: 'Desa Lokasi Baru',
   },
 
   // --- Kesehatan ------------------------------------------------------------
   {
-    id: 'prog-003',
-    title: 'Posyandu dan Pemeriksaan Kesehatan',
-    slug: 'posyandu-pemeriksaan-kesehatan',
-    category: 'kesehatan',
-    status: 'selesai',
-    description:
-      'Kegiatan posyandu rutin untuk balita dan lansia, termasuk pemeriksaan tekanan darah dan pemberian vitamin.',
-    image: '/images/programs/posyandu.jpg',
-    date: '2024-07-22',
-    participants: 50,
-    location: 'Puskesmas Desa',
-  },
-  {
-    id: 'prog-004',
-    title: 'Senam Sehat Bersama',
-    slug: 'senam-sehat-bersama',
-    category: 'kesehatan',
-    status: 'selesai',
-    description:
-      'Kegiatan olahraga bersama warga desa untuk meningkatkan kesadaran hidup sehat dan aktif bergerak.',
-    image: '/images/programs/senam.jpg',
-    date: '2024-07-25',
-    participants: 40,
-  },
-
-  // --- Infrastruktur --------------------------------------------------------
-  {
     id: 'prog-005',
-    title: 'Pembuatan Plang Jalan',
-    slug: 'pembuatan-plang-jalan',
-    category: 'infrastruktur',
-    status: 'selesai',
+    title: 'Penyuluhan PHBS di Sekolah',
+    slug: 'penyuluhan-phbs-sekolah',
+    category: 'kesehatan',
+    status: 'direncanakan',
     description:
-      'Pemasangan plang penunjuk jalan dan nama gang di desa untuk mempermudah navigasi dan identitas lingkungan.',
-    image: '/images/programs/plang-jalan.jpg',
-    date: '2024-07-28',
-    location: 'Sepanjang Jalan Desa',
+      'Penyuluhan kepada peserta didik mengenai pentingnya menjaga kebersihan diri, lingkungan, dan menerapkan perilaku hidup bersih dan sehat (PHBS) dalam kehidupan sehari-hari.',
+    image: '/images/programs/phbs.jpg',
+    date: '2026-07-05',
+    location: 'Sekolah Desa Lokasi Baru',
   },
-
-  // --- Lingkungan -----------------------------------------------------------
   {
     id: 'prog-006',
-    title: 'Kerja Bakti Lingkungan',
-    slug: 'kerja-bakti-lingkungan',
-    category: 'lingkungan',
-    status: 'selesai',
+    title: 'Penyuluhan Hipertensi',
+    slug: 'penyuluhan-hipertensi',
+    category: 'kesehatan',
+    status: 'direncanakan',
     description:
-      'Gotong royong membersihkan lingkungan desa, termasuk saluran air, jalan, dan area publik bersama warga.',
-    image: '/images/programs/kerja-bakti.jpg',
-    date: '2024-08-01',
-    participants: 60,
+      'Kegiatan edukasi kepada masyarakat mengenai penyebab, faktor risiko, pencegahan, dan pentingnya deteksi dini hipertensi (tekanan darah tinggi).',
+    image: '/images/programs/hipertensi.jpg',
+    date: '2026-07-10',
+    location: 'Balai Desa Lokasi Baru',
   },
   {
     id: 'prog-007',
-    title: 'Penanaman Pohon',
-    slug: 'penanaman-pohon',
-    category: 'lingkungan',
-    status: 'selesai',
+    title: 'Penyuluhan Diabetes Mellitus',
+    slug: 'penyuluhan-diabetes',
+    category: 'kesehatan',
+    status: 'direncanakan',
     description:
-      'Program penghijauan dengan menanam bibit pohon produktif di lahan kosong desa untuk kelestarian lingkungan.',
-    image: '/images/programs/tanam-pohon.jpg',
-    date: '2024-08-03',
-    participants: 35,
+      'Penyuluhan mengenai diabetes mellitus yang mencakup faktor risiko, pencegahan, serta cara pengendalian kadar gula darah melalui pola hidup sehat.',
+    image: '/images/programs/diabetes.jpg',
+    date: '2026-07-15',
+    location: 'Balai Desa Lokasi Baru',
   },
 
-  // --- Ekonomi --------------------------------------------------------------
+  // --- Teknologi Informasi ---------------------------------------------------
   {
     id: 'prog-008',
-    title: 'Pelatihan UMKM Digital',
-    slug: 'pelatihan-umkm-digital',
-    category: 'ekonomi',
-    status: 'selesai',
+    title: 'Digitalisasi Informasi Pengelolaan dan Pengaduan Sampah',
+    slug: 'digitalisasi-website-desa',
+    category: 'pendidikan',
+    status: 'direncanakan',
     description:
-      'Workshop pemasaran digital untuk pelaku UMKM desa, termasuk cara berjualan online dan membuat konten promosi.',
-    image: '/images/programs/umkm.jpg',
-    date: '2024-08-05',
-    participants: 20,
-    location: 'Balai Desa',
+      'Program pengembangan sistem informasi berbasis website untuk menyampaikan informasi pengelolaan sampah sekaligus menjadi sarana pengaduan masyarakat desa.',
+    image: '/images/programs/website-desa.jpg',
+    date: '2026-07-05',
+    location: 'Desa Lokasi Baru',
   },
 
-  // --- Sosial & Budaya ------------------------------------------------------
+  // --- Literasi Digital -------------------------------------------------------
   {
     id: 'prog-009',
-    title: 'Festival Budaya Desa',
-    slug: 'festival-budaya-desa',
-    category: 'sosial-budaya',
-    status: 'selesai',
+    title: 'Edukasi Penggunaan Gadget Secara Bijak',
+    slug: 'edukasi-gadget-bijak',
+    category: 'pendidikan',
+    status: 'direncanakan',
     description:
-      'Acara perayaan budaya lokal dengan menampilkan kesenian tradisional, makanan khas, dan permainan rakyat.',
-    image: '/images/programs/festival.jpg',
-    date: '2024-08-10',
-    participants: 100,
-    location: 'Lapangan Desa',
-  },
-  {
-    id: 'prog-010',
-    title: 'Mengajar Mengaji',
-    slug: 'mengajar-mengaji',
-    category: 'sosial-budaya',
-    status: 'selesai',
-    description:
-      'Kegiatan mengajar mengaji dan belajar agama untuk anak-anak di mushola dan masjid desa.',
-    image: '/images/programs/mengaji.jpg',
-    date: '2024-07-10',
-    participants: 25,
-    location: 'Masjid Desa',
+      'Program edukasi kepada anak-anak dan remaja mengenai penggunaan gadget secara sehat, aman, dan bertanggung jawab untuk mendorong penggunaan teknologi secara produktif.',
+    image: '/images/programs/literasi-digital.jpg',
+    date: '2026-07-20',
+    location: 'Sekolah & Balai Desa Lokasi Baru',
   },
 ];
 

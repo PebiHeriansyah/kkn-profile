@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CONTACT_INFO, UNIVERSITY } from '@/lib/constants';
 
 export function CTA() {
   const ref = useRef<HTMLDivElement>(null);
@@ -101,9 +102,9 @@ export function CTA() {
           transition={{ delay: 0.5 }}
         >
           {[
-            { label: 'Instagram', href: 'https://instagram.com/kkn_unib' },
-            { label: 'YouTube', href: 'https://youtube.com/@kkn_unib' },
-            { label: 'Website UNIB', href: 'https://unib.ac.id' },
+            { label: 'Instagram', href: CONTACT_INFO.instagram || '#' },
+            { label: 'YouTube', href: CONTACT_INFO.youtube || '#' },
+            { label: 'Website UNIB', href: UNIVERSITY.website },
           ].map(({ label, href }) => (
             <a
               key={label}

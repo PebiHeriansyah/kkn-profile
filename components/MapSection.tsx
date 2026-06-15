@@ -6,6 +6,7 @@ import { AdvancedMap } from '@/components/ui/interactive-map';
 import { MapPin, Navigation } from 'lucide-react';
 
 export const MapSection = () => {
+  // Koordinat Desa Lokasi Baru, Kec. Air Periukan, Kab. Seluma, Bengkulu
   const mapCenter: [number, number] = [-3.973507, 102.416927];
   
   const markers = [
@@ -15,8 +16,8 @@ export const MapSection = () => {
       color: 'red',
       size: 'large',
       popup: {
-        title: 'Lokasi KKN',
-        content: 'Titik Posko KKN',
+        title: 'Desa Lokasi Baru',
+        content: 'Posko KKN Kelompok 27 — Kec. Air Periukan, Kab. Seluma, Bengkulu',
         image: 'https://images.unsplash.com/photo-1596422846543-75c6fc197f0a?auto=format&fit=crop&q=80&w=400&h=300'
       }
     }

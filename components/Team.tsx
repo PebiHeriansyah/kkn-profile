@@ -24,9 +24,12 @@ const MEMBER_PHOTOS: Record<string, string> = {
 };
 
 const ROLE_LABELS: Record<string, string> = {
-  ketua: 'Ketua KKN',
+  ketua: 'Ketua Kelompok',
   sekretaris: 'Sekretaris',
   bendahara: 'Bendahara',
+  acara: 'Divisi Acara',
+  humas: 'Divisi Humas',
+  pdd: 'Divisi PDD',
   anggota: 'Anggota',
 };
 
@@ -34,6 +37,9 @@ const ROLE_BADGE: Record<string, string> = {
   ketua: 'bg-emas/15 text-emas-tua border-emas/30 dark:bg-emas/20 dark:text-emas dark:border-emas/40',
   sekretaris: 'bg-hijau-tua/10 text-hijau-tua border-hijau-tua/20 dark:bg-hijau-segar/15 dark:text-hijau-segar dark:border-hijau-segar/30',
   bendahara: 'bg-hijau-tua/10 text-hijau-tua border-hijau-tua/20 dark:bg-hijau-segar/15 dark:text-hijau-segar dark:border-hijau-segar/30',
+  acara: 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700/40',
+  humas: 'bg-violet-100 text-violet-700 border-violet-200 dark:bg-violet-900/30 dark:text-violet-300 dark:border-violet-700/40',
+  pdd: 'bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-700/40',
   anggota: 'bg-kapur-gelap text-tanah border-kapur-gelap dark:bg-white/8 dark:text-white/60 dark:border-white/10',
 };
 
@@ -42,7 +48,7 @@ export function Team() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   const leadership = teamMembers.filter((m) => ['ketua', 'sekretaris', 'bendahara'].includes(m.role));
-  const members = teamMembers.filter((m) => m.role === 'anggota');
+  const members = teamMembers.filter((m) => !['ketua', 'sekretaris', 'bendahara', 'dpl'].includes(m.role));
 
   return (
     <section className="bg-background section-padding" id="team">
@@ -149,8 +155,11 @@ export function Team() {
                 />
               </div>
               <h4 className="text-xs font-bold text-gelap dark:text-white leading-tight mb-0.5 line-clamp-2">{member.name}</h4>
-              <p className="text-xs text-gelap/50 dark:text-white/45 line-clamp-1">{member.major}</p>
-              <span className="mt-2 text-xs text-white/80 font-semibold bg-hijau-tua/80 dark:bg-hijau-muda/50 px-2 py-0.5 rounded-full">
+              <p className="text-xs text-gelap/50 dark:text-white/45 line-clamp-1 mb-2">{member.major}</p>
+              <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border mb-1.5 ${ROLE_BADGE[member.role] || ROLE_BADGE['anggota']}`}>
+                {ROLE_LABELS[member.role] || 'Anggota'}
+              </span>
+              <span className="text-xs text-gelap/45 dark:text-white/40 font-mono">
                 {member.npm}
               </span>
             </motion.div>

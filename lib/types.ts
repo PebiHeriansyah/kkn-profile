@@ -9,6 +9,9 @@ export type TeamRole =
   | 'ketua'
   | 'sekretaris'
   | 'bendahara'
+  | 'acara'
+  | 'humas'
+  | 'pdd'
   | 'anggota'
   | 'dpl';
 

@@ -6,12 +6,12 @@ import { timelineEvents } from '@/lib/data/timeline';
 import type { ProgramCategory } from '@/lib/types';
 
 const CATEGORY_CONFIG: Record<string, { label: string; dot: string; line: string }> = {
-  pendidikan:    { label: 'Pendidikan',     dot: 'bg-blue-500',    line: 'bg-blue-200 dark:bg-blue-800' },
-  kesehatan:     { label: 'Kesehatan',      dot: 'bg-green-500',   line: 'bg-green-200 dark:bg-green-800' },
-  lingkungan:    { label: 'Lingkungan',     dot: 'bg-emerald-500', line: 'bg-emerald-200 dark:bg-emerald-800' },
-  ekonomi:       { label: 'Ekonomi',        dot: 'bg-amber-500',   line: 'bg-amber-200 dark:bg-amber-800' },
-  infrastruktur: { label: 'Infrastruktur',  dot: 'bg-orange-500',  line: 'bg-orange-200 dark:bg-orange-800' },
-  'sosial-budaya':{ label: 'Sosial & Budaya', dot: 'bg-purple-500', line: 'bg-purple-200 dark:bg-purple-800' },
+  pendidikan: { label: 'Pendidikan', dot: 'bg-blue-500', line: 'bg-blue-200 dark:bg-blue-800' },
+  kesehatan: { label: 'Kesehatan', dot: 'bg-green-500', line: 'bg-green-200 dark:bg-green-800' },
+  lingkungan: { label: 'Lingkungan', dot: 'bg-emerald-500', line: 'bg-emerald-200 dark:bg-emerald-800' },
+  ekonomi: { label: 'Ekonomi', dot: 'bg-amber-500', line: 'bg-amber-200 dark:bg-amber-800' },
+  infrastruktur: { label: 'Infrastruktur', dot: 'bg-orange-500', line: 'bg-orange-200 dark:bg-orange-800' },
+  'sosial-budaya': { label: 'Sosial & Budaya', dot: 'bg-purple-500', line: 'bg-purple-200 dark:bg-purple-800' },
 };
 
 function formatDate(dateStr: string) {

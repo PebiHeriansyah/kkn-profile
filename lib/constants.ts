@@ -7,10 +7,10 @@ import type { NavItem, ContactInfo } from './types';
 
 // --- Site Metadata ----------------------------------------------------------
 
-export const SITE_NAME = 'KKN Universitas Bengkulu';
+export const SITE_NAME = 'KKN Kelompok 27 – Universitas Bengkulu';
 export const SITE_DESCRIPTION =
-  'Profil kegiatan Kuliah Kerja Nyata (KKN) Universitas Bengkulu — Program pengabdian masyarakat untuk pembangunan desa.';
-export const SITE_URL = 'https://kkn-profile.vercel.app';
+  'Profil kegiatan Kuliah Kerja Nyata (KKN) Kelompok 27 Universitas Bengkulu Periode 108 — Pengabdian masyarakat di Desa Lokasi Baru, Kecamatan Air Periukan, Kabupaten Seluma, Provinsi Bengkulu.';
+export const SITE_URL = 'https://kkn-profile.netlify.app';
 
 // --- Navigation -------------------------------------------------------------
 
@@ -28,11 +28,11 @@ export const NAV_ITEMS: NavItem[] = [
 // --- Contact Information ----------------------------------------------------
 
 export const CONTACT_INFO: ContactInfo = {
-  address: 'Desa Contoh, Kecamatan Contoh, Kabupaten Contoh, Provinsi Bengkulu',
-  phone: '+62 812-3456-7890',
-  email: 'kkn@example.com',
-  instagram: 'https://instagram.com/kkn_unib',
-  youtube: 'https://youtube.com/@kkn_unib',
+  address: 'Desa Lokasi Baru, Kecamatan Air Periukan, Kabupaten Seluma, Provinsi Bengkulu',
+  phone: '+62 812-0000-0000',
+  email: 'kkn27unib@gmail.com',
+  instagram: 'https://instagram.com/kkn27_unib',
+  youtube: 'https://youtube.com/@kkn27_unib',
   mapEmbedUrl: '',
 };
 
@@ -48,9 +48,10 @@ export const UNIVERSITY = {
 // --- KKN Period -------------------------------------------------------------
 
 export const KKN_PERIOD = {
-  batch: 'Periode 104',
-  year: '2024',
-  startDate: '2024-07-01',
-  endDate: '2024-08-15',
-  duration: '45 hari',
+  batch: 'Periode 108',
+  group: 'Kelompok 27',
+  year: '2026',
+  startDate: '2026-06-17',
+  endDate: '2026-07-31',
+  duration: '45 Hari',
 };

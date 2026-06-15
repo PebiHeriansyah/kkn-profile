@@ -10,8 +10,8 @@ import { KKN_PERIOD, UNIVERSITY } from '@/lib/constants';
 
 const stats = [
   { icon: Calendar, value: '45', label: 'Hari Pengabdian' },
-  { icon: Users, value: '12', label: 'Mahasiswa Aktif' },
-  { icon: MapPin, value: '10+', label: 'Program Kerja' },
+  { icon: Users, value: '9', label: 'Mahasiswa Aktif' },
+  { icon: MapPin, value: '9+', label: 'Program Kerja' },
 ];
 
 export function Hero() {
@@ -34,7 +34,7 @@ export function Hero() {
       >
         <Image
           src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2560&auto=format&fit=crop"
-          alt="Lanskap Indonesia — Desa Kontoh, Bengkulu"
+          alt="Lanskap Indonesia — Desa Lokasi Baru, Bengkulu"
           fill
           priority
           className="object-cover object-center scale-110"

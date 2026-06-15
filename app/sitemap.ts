@@ -6,7 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '',
     '/tentang',
-    '/profil-desa',
     '/program',
     '/timeline',
     '/galeri',

@@ -1,22 +1,16 @@
 import type { Metadata } from 'next';
-import { Container, SectionHeader } from '@/components/ui';
+import { Team } from '@/components/Team';
 
 export const metadata: Metadata = {
   title: 'Anggota Tim',
   description:
-    'Profil anggota tim KKN Universitas Bengkulu — mahasiswa dari berbagai fakultas yang mengabdi bersama.',
+    'Profil 9 anggota tim KKN Kelompok 27 Universitas Bengkulu Periode 108 — mahasiswa yang mengabdi bersama di Desa Lokasi Baru, Kab. Seluma.',
 };
 
 export default function TeamPage() {
   return (
-    <section className="pt-28 pb-20">
-      <Container>
-        <SectionHeader
-          title="Anggota Tim"
-          subtitle="Mahasiswa lintas fakultas yang bersatu dalam pengabdian"
-        />
-        <p className="text-center text-tanah">[Team Members grid — Phase 3]</p>
-      </Container>
-    </section>
+    <main className="pt-20 pb-4">
+      <Team />
+    </main>
   );
 }

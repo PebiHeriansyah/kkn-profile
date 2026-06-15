@@ -14,7 +14,7 @@ import { impactStats } from '@/lib/data/village';
 export const metadata: Metadata = {
   title: 'Beranda',
   description:
-    'Profil kegiatan Kuliah Kerja Nyata (KKN) Universitas Bengkulu. Program pengabdian masyarakat untuk pembangunan desa yang berkelanjutan.',
+    'Profil kegiatan Kuliah Kerja Nyata (KKN) Kelompok 27 Universitas Bengkulu Periode 108. Pengabdian masyarakat di Desa Lokasi Baru, Kecamatan Air Periukan, Kabupaten Seluma, Bengkulu.',
 };
 
 export default function HomePage() {
@@ -32,9 +32,9 @@ export default function HomePage() {
       {/* 4. First parallax banner — Village Profile teaser */}
       <ParallaxBanner
         imageUrl="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=2000&auto=format&fit=crop"
-        imageAlt="Pemandangan Desa Bengkulu"
-        headline="Desa Contoh — Kecamatan Contoh, Bengkulu"
-        subline="Dataran tinggi dengan hamparan kebun kopi yang subur dan masyarakat yang penuh semangat gotong royong."
+        imageAlt="Pemandangan Desa Lokasi Baru, Bengkulu"
+        headline="Desa Lokasi Baru — Kec. Air Periukan, Kab. Seluma, Bengkulu"
+        subline="Bumi Bengkulu yang subur menjadi tempat kami belajar, mengabdi, dan bertumbuh bersama masyarakat selama 45 hari."
         overlayColor="from-gelap/85 via-hijau-tua/60 to-transparent"
         height="md"
       />
