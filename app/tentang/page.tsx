@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, SectionHeader } from '@/components/ui';
+import { Container } from '@/components/ui';
 import { CheckCircle2, Target, Eye } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -31,90 +31,114 @@ const profileData = [
 
 export default function AboutPage() {
   return (
-    <main className="pt-28 pb-20">
+    <main className="pt-28 pb-24 bg-kapur dark:bg-gelap">
       <Container>
-        <SectionHeader
-          title="Tentang KKN Kelompok 27"
-          subtitle="Mengenal lebih dekat KKN Kelompok 27 Universitas Bengkulu — pengabdian nyata untuk Desa Lokasi Baru"
-        />
-
-        {/* Tentang Kami */}
-        <section className="max-w-3xl mx-auto mb-16">
-          <h2 className="text-2xl font-bold text-gelap dark:text-white mb-4">Tentang Kami</h2>
-          <div className="space-y-4 text-gelap/75 dark:text-white/70 leading-relaxed">
-            <p>
-              <strong className="text-gelap dark:text-white">KKN Kelompok 27 Universitas Bengkulu</strong> merupakan kelompok mahasiswa peserta Kuliah Kerja Nyata (KKN) Periode 108 yang melaksanakan kegiatan pengabdian kepada masyarakat di <strong className="text-gelap dark:text-white">Desa Lokasi Baru, Kecamatan Air Periukan, Kabupaten Seluma, Provinsi Bengkulu</strong>.
-            </p>
-            <p>
-              Kuliah Kerja Nyata (KKN) merupakan salah satu bentuk implementasi Tri Dharma Perguruan Tinggi yang memberikan kesempatan kepada mahasiswa untuk mengaplikasikan ilmu pengetahuan dan keterampilan yang diperoleh selama perkuliahan dalam kehidupan bermasyarakat.
-            </p>
-            <p>
-              Selama <strong className="text-gelap dark:text-white">45 hari</strong> pelaksanaan KKN, mahasiswa bersama masyarakat berkolaborasi dalam berbagai kegiatan yang bertujuan meningkatkan kualitas hidup masyarakat melalui program di bidang lingkungan, kesehatan, pendidikan, teknologi informasi, dan pemberdayaan masyarakat.
-            </p>
-            <p>
-              KKN Kelompok 27 hadir dengan semangat pengabdian, kebersamaan, dan inovasi untuk memberikan kontribusi nyata bagi masyarakat serta mendukung pembangunan desa yang berkelanjutan.
-            </p>
-          </div>
-        </section>
-
-        {/* Visi */}
-        <section className="max-w-3xl mx-auto mb-16">
-          <div className="rounded-2xl border border-hijau-tua/20 bg-hijau-tua/5 dark:bg-hijau-tua/10 p-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-10 w-10 rounded-xl bg-hijau-tua/15 flex items-center justify-center">
-                <Eye className="h-5 w-5 text-hijau-tua dark:text-hijau-segar" />
-              </div>
-              <h2 className="text-2xl font-bold text-gelap dark:text-white">Visi</h2>
+        <div className="max-w-3xl mx-auto space-y-12">
+          {/* Tentang Kami */}
+          <section>
+            <h2 className="text-xl font-bold text-gelap dark:text-white mb-4 pb-3 border-b border-kapur-gelap dark:border-white/8">
+              Tentang Kami
+            </h2>
+            <div className="space-y-4 text-[15px] text-gelap/70 dark:text-white/65 leading-relaxed">
+              <p>
+                <strong className="text-gelap dark:text-white font-semibold">
+                  KKN Kelompok 27 Universitas Bengkulu
+                </strong>{' '}
+                merupakan kelompok mahasiswa peserta Kuliah Kerja Nyata (KKN) Periode 108 yang
+                melaksanakan kegiatan pengabdian kepada masyarakat di{' '}
+                <strong className="text-gelap dark:text-white font-semibold">
+                  Desa Lokasi Baru, Kecamatan Air Periukan, Kabupaten Seluma, Provinsi Bengkulu
+                </strong>.
+              </p>
+              <p>
+                Kuliah Kerja Nyata (KKN) merupakan salah satu bentuk implementasi Tri Dharma Perguruan
+                Tinggi yang memberikan kesempatan kepada mahasiswa untuk mengaplikasikan ilmu
+                pengetahuan dan keterampilan yang diperoleh selama perkuliahan dalam kehidupan
+                bermasyarakat.
+              </p>
+              <p>
+                Selama{' '}
+                <strong className="text-gelap dark:text-white font-semibold">45 hari</strong>{' '}
+                pelaksanaan KKN, mahasiswa bersama masyarakat berkolaborasi dalam berbagai kegiatan
+                yang bertujuan meningkatkan kualitas hidup masyarakat melalui program di bidang
+                lingkungan, kesehatan, pendidikan, teknologi informasi, dan pemberdayaan masyarakat.
+              </p>
             </div>
-            <p className="text-gelap/80 dark:text-white/75 leading-relaxed italic text-lg">
-              "Menjadi kelompok pengabdian yang mampu memberikan kontribusi nyata, inovatif, dan berkelanjutan bagi masyarakat melalui pemberdayaan, edukasi, serta penerapan ilmu pengetahuan dan teknologi."
-            </p>
-          </div>
-        </section>
+          </section>
 
-        {/* Misi */}
-        <section className="max-w-3xl mx-auto mb-16">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="h-10 w-10 rounded-xl bg-emas/15 flex items-center justify-center">
-              <Target className="h-5 w-5 text-emas-tua dark:text-emas" />
-            </div>
-            <h2 className="text-2xl font-bold text-gelap dark:text-white">Misi</h2>
-          </div>
-          <ul className="space-y-4">
-            {missions.map((mission, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 text-hijau-terang shrink-0 mt-0.5" />
-                <span className="text-gelap/75 dark:text-white/70 leading-relaxed">{mission}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Profil Kelompok */}
-        <section className="max-w-3xl mx-auto mb-16">
-          <h2 className="text-2xl font-bold text-gelap dark:text-white mb-6">Profil Kelompok</h2>
-          <div className="rounded-2xl border border-kapur-gelap dark:border-white/10 overflow-hidden">
-            {profileData.map(({ label, value }, i) => (
-              <div
-                key={label}
-                className={`flex items-center gap-4 px-6 py-4 ${
-                  i % 2 === 0 ? 'bg-kapur dark:bg-white/5' : 'bg-background dark:bg-gelap'
-                }`}
-              >
-                <span className="w-48 text-sm font-semibold text-gelap/60 dark:text-white/50 shrink-0">{label}</span>
-                <span className="text-sm font-medium text-gelap dark:text-white">{value}</span>
+          {/* Visi */}
+          <section>
+            <h2 className="text-xl font-bold text-gelap dark:text-white mb-4 pb-3 border-b border-kapur-gelap dark:border-white/8">
+              Visi
+            </h2>
+            <div className="rounded-2xl border border-hijau-tua/20 bg-hijau-tua/5 dark:bg-hijau-tua/10 p-6">
+              <div className="flex items-start gap-4">
+                <div className="h-10 w-10 rounded-xl bg-hijau-tua/12 dark:bg-hijau-tua/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <Eye className="h-5 w-5 text-hijau-tua dark:text-hijau-segar" />
+                </div>
+                <p className="text-[15px] text-gelap/80 dark:text-white/75 leading-relaxed italic">
+                  &ldquo;Menjadi kelompok pengabdian yang mampu memberikan kontribusi nyata, inovatif,
+                  dan berkelanjutan bagi masyarakat melalui pemberdayaan, edukasi, serta penerapan
+                  ilmu pengetahuan dan teknologi.&rdquo;
+                </p>
               </div>
-            ))}
-          </div>
-        </section>
+            </div>
+          </section>
 
-        {/* Kutipan */}
-        <section className="max-w-2xl mx-auto text-center">
-          <blockquote className="text-2xl font-black text-hijau-tua dark:text-hijau-segar italic leading-snug">
-            "Bersatu dalam karya, tumbuh bersama masyarakat."
-          </blockquote>
-          <p className="mt-3 text-sm text-gelap/50 dark:text-white/40 font-medium">— KKN Kelompok 27, Universitas Bengkulu</p>
-        </section>
+          {/* Misi */}
+          <section>
+            <h2 className="text-xl font-bold text-gelap dark:text-white mb-4 pb-3 border-b border-kapur-gelap dark:border-white/8">
+              Misi
+            </h2>
+            <ul className="space-y-3">
+              {missions.map((mission, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-hijau-terang shrink-0 mt-0.5" />
+                  <span className="text-[15px] text-gelap/70 dark:text-white/65 leading-relaxed">
+                    {mission}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Profil Kelompok */}
+          <section>
+            <h2 className="text-xl font-bold text-gelap dark:text-white mb-4 pb-3 border-b border-kapur-gelap dark:border-white/8">
+              Profil Kelompok
+            </h2>
+            <div className="rounded-2xl border border-kapur-gelap dark:border-white/8 overflow-hidden">
+              {profileData.map(({ label, value }, i) => (
+                <div
+                  key={label}
+                  className={`grid grid-cols-2 gap-4 px-5 py-3.5 text-sm ${
+                    i % 2 === 0
+                      ? 'bg-kapur dark:bg-white/[0.03]'
+                      : 'bg-background dark:bg-transparent'
+                  } ${i !== profileData.length - 1 ? 'border-b border-kapur-gelap dark:border-white/8' : ''}`}
+                >
+                  <span className="font-medium text-gelap/55 dark:text-white/45">{label}</span>
+                  <span className="font-semibold text-gelap dark:text-white">{value}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Kutipan */}
+          <section className="text-center pt-4">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="h-px w-8 bg-emas" />
+              <span className="text-xs font-bold uppercase tracking-[0.12em] text-emas-tua dark:text-emas">Semangat Kami</span>
+              <span className="h-px w-8 bg-emas" />
+            </div>
+            <blockquote className="text-2xl font-black text-hijau-tua dark:text-hijau-segar italic leading-snug">
+              &ldquo;Bersatu dalam karya, tumbuh bersama masyarakat.&rdquo;
+            </blockquote>
+            <p className="mt-3 text-sm text-gelap/45 dark:text-white/40 font-medium">
+              — KKN Kelompok 27, Universitas Bengkulu
+            </p>
+          </section>
+        </div>
       </Container>
     </main>
   );

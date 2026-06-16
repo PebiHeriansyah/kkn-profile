@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, SectionHeader } from '@/components/ui';
+import { Container } from '@/components/ui';
 import { MapPin, Phone, Mail, Globe, Video, ExternalLink } from 'lucide-react';
 import { CONTACT_INFO, UNIVERSITY } from '@/lib/constants';
 
@@ -15,24 +15,24 @@ const contactItems = [
     label: 'Alamat Posko',
     value: CONTACT_INFO.address,
     href: undefined,
-    color: 'text-emerald-600 dark:text-emerald-400',
-    bg: 'bg-emerald-50 dark:bg-emerald-900/20',
+    iconBg: 'bg-emerald-50 dark:bg-emerald-900/20',
+    iconColor: 'text-emerald-600 dark:text-emerald-400',
   },
   {
     icon: Phone,
     label: 'Telepon',
     value: CONTACT_INFO.phone,
     href: `tel:${CONTACT_INFO.phone}`,
-    color: 'text-blue-600 dark:text-blue-400',
-    bg: 'bg-blue-50 dark:bg-blue-900/20',
+    iconBg: 'bg-blue-50 dark:bg-blue-900/20',
+    iconColor: 'text-blue-600 dark:text-blue-400',
   },
   {
     icon: Mail,
     label: 'Email',
     value: CONTACT_INFO.email,
     href: `mailto:${CONTACT_INFO.email}`,
-    color: 'text-violet-600 dark:text-violet-400',
-    bg: 'bg-violet-50 dark:bg-violet-900/20',
+    iconBg: 'bg-violet-50 dark:bg-violet-900/20',
+    iconColor: 'text-violet-600 dark:text-violet-400',
   },
 ];
 
@@ -42,57 +42,62 @@ const socialItems = [
     label: 'Instagram',
     handle: '@kkn27_unib',
     href: CONTACT_INFO.instagram,
-    color: 'text-pink-600 dark:text-pink-400',
-    bg: 'bg-pink-50 dark:bg-pink-900/20',
+    iconBg: 'bg-pink-50 dark:bg-pink-900/20',
+    iconColor: 'text-pink-600 dark:text-pink-400',
   },
   {
     icon: Video,
     label: 'YouTube',
     handle: '@kkn27_unib',
     href: CONTACT_INFO.youtube,
-    color: 'text-red-600 dark:text-red-400',
-    bg: 'bg-red-50 dark:bg-red-900/20',
+    iconBg: 'bg-red-50 dark:bg-red-900/20',
+    iconColor: 'text-red-600 dark:text-red-400',
   },
   {
     icon: ExternalLink,
     label: 'Website UNIB',
     handle: 'unib.ac.id',
     href: UNIVERSITY.website,
-    color: 'text-hijau-tua dark:text-hijau-segar',
-    bg: 'bg-hijau-tua/5 dark:bg-hijau-segar/10',
+    iconBg: 'bg-hijau-tua/8 dark:bg-hijau-segar/10',
+    iconColor: 'text-hijau-tua dark:text-hijau-segar',
   },
 ];
 
 export default function ContactPage() {
   return (
-    <main className="pt-28 pb-20">
+    <main className="pt-28 pb-24 bg-kapur dark:bg-gelap">
       <Container>
-        <SectionHeader
-          title="Hubungi Kami"
-          subtitle="Punya pertanyaan atau ingin berkolaborasi? Silakan hubungi tim KKN Kelompok 27"
-        />
 
-        <div className="max-w-4xl mx-auto mt-12 grid md:grid-cols-2 gap-10">
-          {/* Contact Info */}
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+          {/* Informasi Kontak */}
           <section>
-            <h2 className="text-xl font-bold text-gelap dark:text-white mb-6">Informasi Kontak</h2>
-            <div className="space-y-4">
-              {contactItems.map(({ icon: Icon, label, value, href, color, bg }) => (
+            <h2 className="text-base font-bold text-gelap dark:text-white mb-4 pb-3 border-b border-kapur-gelap dark:border-white/8 uppercase tracking-wider text-xs">
+              Informasi Kontak
+            </h2>
+            <div className="space-y-3">
+              {contactItems.map(({ icon: Icon, label, value, href, iconBg, iconColor }) => (
                 <div
                   key={label}
-                  className="flex items-start gap-4 rounded-2xl border border-kapur-gelap dark:border-white/10 bg-kapur dark:bg-white/5 p-5"
+                  className="flex items-start gap-4 rounded-xl border border-kapur-gelap dark:border-white/8 bg-background dark:bg-white/[0.03] p-4"
                 >
-                  <div className={`h-10 w-10 rounded-xl flex items-center justify-center shrink-0 ${bg}`}>
-                    <Icon className={`h-5 w-5 ${color}`} />
+                  <div className={`h-9 w-9 rounded-lg flex items-center justify-center shrink-0 ${iconBg}`}>
+                    <Icon className={`h-4 w-4 ${iconColor}`} />
                   </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-gelap/45 dark:text-white/40 mb-1">{label}</p>
+                  <div className="min-w-0">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-gelap/40 dark:text-white/35 mb-1">
+                      {label}
+                    </p>
                     {href ? (
-                      <a href={href} className={`text-sm font-medium ${color} hover:underline break-all`}>
+                      <a
+                        href={href}
+                        className={`text-sm font-medium ${iconColor} hover:underline break-all`}
+                      >
                         {value}
                       </a>
                     ) : (
-                      <p className="text-sm font-medium text-gelap dark:text-white leading-relaxed">{value}</p>
+                      <p className="text-sm font-medium text-gelap dark:text-white leading-relaxed">
+                        {value}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -100,38 +105,32 @@ export default function ContactPage() {
             </div>
           </section>
 
-          {/* Social Media */}
+          {/* Media Sosial */}
           <section>
-            <h2 className="text-xl font-bold text-gelap dark:text-white mb-6">Media Sosial</h2>
-            <div className="space-y-4 mb-8">
-              {socialItems.map(({ icon: Icon, label, handle, href, color, bg }) => (
+            <h2 className="text-base font-bold text-gelap dark:text-white mb-4 pb-3 border-b border-kapur-gelap dark:border-white/8 uppercase tracking-wider text-xs">
+              Media Sosial
+            </h2>
+            <div className="space-y-3">
+              {socialItems.map(({ icon: Icon, label, handle, href, iconBg, iconColor }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 rounded-2xl border border-kapur-gelap dark:border-white/10 bg-kapur dark:bg-white/5 p-5 hover:border-hijau-tua/30 dark:hover:border-hijau-segar/30 hover:shadow-card transition-all duration-300 group"
+                  className="flex items-center gap-4 rounded-xl border border-kapur-gelap dark:border-white/8 bg-background dark:bg-white/[0.03] p-4 hover:border-hijau-tua/25 dark:hover:border-hijau-segar/25 hover:shadow-sm transition-all duration-200 group"
                 >
-                  <div className={`h-10 w-10 rounded-xl flex items-center justify-center shrink-0 ${bg}`}>
-                    <Icon className={`h-5 w-5 ${color}`} />
+                  <div className={`h-9 w-9 rounded-lg flex items-center justify-center shrink-0 ${iconBg}`}>
+                    <Icon className={`h-4 w-4 ${iconColor}`} />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-gelap/45 dark:text-white/40 mb-1">{label}</p>
-                    <p className={`text-sm font-bold ${color}`}>{handle}</p>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-gelap/40 dark:text-white/35 mb-0.5">
+                      {label}
+                    </p>
+                    <p className={`text-sm font-semibold ${iconColor}`}>{handle}</p>
                   </div>
+                  <ExternalLink className="h-3.5 w-3.5 text-gelap/25 dark:text-white/25 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               ))}
-            </div>
-
-            {/* Tagline card */}
-            <div className="rounded-2xl border border-hijau-tua/20 bg-hijau-tua/5 dark:bg-hijau-tua/10 p-6 text-center">
-              <p className="text-sm text-gelap/70 dark:text-white/65 leading-relaxed mb-3">
-                KKN Kelompok 27 melaksanakan kegiatan pengabdian masyarakat mulai{' '}
-                <strong className="text-gelap dark:text-white">17 Juni – 31 Juli 2026</strong> di Desa Lokasi Baru, Kecamatan Air Periukan, Kabupaten Seluma, Bengkulu.
-              </p>
-              <p className="text-sm font-black text-hijau-tua dark:text-hijau-segar italic">
-                "Bersatu dalam karya, tumbuh bersama masyarakat."
-              </p>
             </div>
           </section>
         </div>

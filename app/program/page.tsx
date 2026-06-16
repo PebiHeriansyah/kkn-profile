@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, SectionHeader } from '@/components/ui';
+import { Container } from '@/components/ui';
 import { Leaf, Heart, Monitor, Smartphone, CheckCircle2, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -133,93 +133,110 @@ const programBidang = [
   },
 ];
 
-const colorMap: Record<string, { bg: string; border: string; badge: string; icon: string; dot: string }> = {
+const colorMap: Record<string, {
+  bg: string; border: string; badge: string; badgeText: string;
+  icon: string; iconText: string; dot: string; divider: string;
+}> = {
   emerald: {
-    bg: 'bg-emerald-50 dark:bg-emerald-900/10',
+    bg: 'bg-emerald-50 dark:bg-emerald-950/30',
     border: 'border-emerald-200 dark:border-emerald-800/40',
-    badge: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300',
-    icon: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300',
+    badge: 'bg-emerald-100 dark:bg-emerald-900/50',
+    badgeText: 'text-emerald-700 dark:text-emerald-300',
+    icon: 'bg-emerald-100 dark:bg-emerald-900/40',
+    iconText: 'text-emerald-600 dark:text-emerald-400',
     dot: 'bg-emerald-500',
+    divider: 'bg-emerald-200 dark:bg-emerald-800/40',
   },
   rose: {
-    bg: 'bg-rose-50 dark:bg-rose-900/10',
+    bg: 'bg-rose-50 dark:bg-rose-950/30',
     border: 'border-rose-200 dark:border-rose-800/40',
-    badge: 'bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300',
-    icon: 'bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300',
+    badge: 'bg-rose-100 dark:bg-rose-900/50',
+    badgeText: 'text-rose-700 dark:text-rose-300',
+    icon: 'bg-rose-100 dark:bg-rose-900/40',
+    iconText: 'text-rose-600 dark:text-rose-400',
     dot: 'bg-rose-500',
+    divider: 'bg-rose-200 dark:bg-rose-800/40',
   },
   blue: {
-    bg: 'bg-blue-50 dark:bg-blue-900/10',
+    bg: 'bg-blue-50 dark:bg-blue-950/30',
     border: 'border-blue-200 dark:border-blue-800/40',
-    badge: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
-    icon: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300',
+    badge: 'bg-blue-100 dark:bg-blue-900/50',
+    badgeText: 'text-blue-700 dark:text-blue-300',
+    icon: 'bg-blue-100 dark:bg-blue-900/40',
+    iconText: 'text-blue-600 dark:text-blue-400',
     dot: 'bg-blue-500',
+    divider: 'bg-blue-200 dark:bg-blue-800/40',
   },
   violet: {
-    bg: 'bg-violet-50 dark:bg-violet-900/10',
+    bg: 'bg-violet-50 dark:bg-violet-950/30',
     border: 'border-violet-200 dark:border-violet-800/40',
-    badge: 'bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300',
-    icon: 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300',
+    badge: 'bg-violet-100 dark:bg-violet-900/50',
+    badgeText: 'text-violet-700 dark:text-violet-300',
+    icon: 'bg-violet-100 dark:bg-violet-900/40',
+    iconText: 'text-violet-600 dark:text-violet-400',
     dot: 'bg-violet-500',
+    divider: 'bg-violet-200 dark:bg-violet-800/40',
   },
 };
 
 export default function ProgramsPage() {
   return (
-    <main className="pt-28 pb-20">
+    <main className="pt-28 pb-24 bg-kapur dark:bg-gelap">
       <Container>
-        <SectionHeader
-          title="Program Kerja"
-          subtitle="Seluruh program yang kami rancang dan laksanakan bersama warga Desa Lokasi Baru"
-        />
-
-        {/* Intro */}
-        <p className="max-w-3xl mx-auto text-center text-gelap/70 dark:text-white/65 leading-relaxed mb-16">
-          Program kerja KKN Kelompok 27 disusun berdasarkan hasil observasi dan identifikasi kebutuhan masyarakat Desa Lokasi Baru. Program-program yang dilaksanakan berfokus pada peningkatan kualitas lingkungan, kesehatan masyarakat, literasi digital, dan pemberdayaan masyarakat desa.
-        </p>
-
         {/* Bidang */}
-        <div className="space-y-16">
-          {programBidang.map((bidang) => {
+        <div className="space-y-14">
+          {programBidang.map((bidang, bi) => {
             const colors = colorMap[bidang.color];
             const Icon = bidang.icon;
             return (
               <section key={bidang.label}>
                 {/* Bidang header */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className={`h-12 w-12 rounded-2xl flex items-center justify-center ${colors.icon}`}>
-                    <Icon className="h-6 w-6" />
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`h-11 w-11 rounded-xl flex items-center justify-center shrink-0 ${colors.icon}`}>
+                    <Icon className={`h-5 w-5 ${colors.iconText}`} />
                   </div>
                   <div>
-                    <span className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${colors.badge}`}>
-                      {bidang.emoji} {bidang.label}
+                    <span className={`inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] px-3 py-1.5 rounded-full ${colors.badge} ${colors.badgeText}`}>
+                      <span>{bidang.emoji}</span>
+                      {bidang.label}
                     </span>
                   </div>
+                  {/* Divider line */}
+                  <div className={`flex-1 h-px ${colors.divider}`} />
                 </div>
 
                 {/* Program cards */}
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-5">
                   {bidang.programs.map((prog) => (
                     <article
                       key={prog.title}
-                      className={`rounded-2xl border p-6 ${colors.bg} ${colors.border} hover:shadow-card transition-all duration-300`}
+                      className={`rounded-2xl border p-6 ${colors.bg} ${colors.border} hover:shadow-md transition-all duration-300 flex flex-col`}
                     >
-                      <h3 className="text-base font-bold text-gelap dark:text-white mb-3 leading-snug">
+                      {/* Title */}
+                      <h3 className="text-[15px] font-bold text-gelap dark:text-white mb-3 leading-snug">
                         {prog.title}
                       </h3>
-                      <p className="text-sm text-gelap/65 dark:text-white/60 leading-relaxed mb-5">
+
+                      {/* Description */}
+                      <p className="text-sm text-gelap/65 dark:text-white/60 leading-relaxed mb-5 flex-1">
                         {prog.description}
                       </p>
+
+                      {/* Goals */}
                       <div>
-                        <div className="flex items-center gap-2 mb-3">
-                          <Target className="h-3.5 w-3.5 text-gelap/40 dark:text-white/40" />
-                          <span className="text-xs font-bold uppercase tracking-wider text-gelap/40 dark:text-white/40">Tujuan</span>
+                        <div className="flex items-center gap-2 mb-3 pb-2 border-b border-black/5 dark:border-white/8">
+                          <Target className="h-3.5 w-3.5 text-gelap/35 dark:text-white/35 shrink-0" />
+                          <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-gelap/40 dark:text-white/40">
+                            Tujuan Program
+                          </span>
                         </div>
                         <ul className="space-y-2">
                           {prog.goals.map((goal) => (
                             <li key={goal} className="flex items-start gap-2.5">
                               <CheckCircle2 className="h-4 w-4 text-hijau-terang shrink-0 mt-0.5" />
-                              <span className="text-sm text-gelap/70 dark:text-white/65">{goal}</span>
+                              <span className="text-sm text-gelap/70 dark:text-white/65 leading-relaxed">
+                                {goal}
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -233,17 +250,23 @@ export default function ProgramsPage() {
         </div>
 
         {/* Harapan Program */}
-        <section className="mt-20 max-w-3xl mx-auto">
-          <div className="rounded-2xl border border-hijau-tua/20 bg-hijau-tua/5 dark:bg-hijau-tua/10 p-8 text-center">
-            <h2 className="text-2xl font-bold text-gelap dark:text-white mb-4">Harapan Program</h2>
-            <p className="text-gelap/75 dark:text-white/70 leading-relaxed mb-4">
-              Melalui seluruh program kerja yang telah dirancang dan dilaksanakan, KKN Kelompok 27 Universitas Bengkulu berharap dapat memberikan manfaat nyata bagi masyarakat Desa Lokasi Baru. Program-program tersebut diharapkan mampu meningkatkan kualitas lingkungan, kesehatan masyarakat, literasi digital, serta memperkuat partisipasi masyarakat dalam pembangunan desa secara berkelanjutan.
+        <section className="mt-20">
+          <div className="max-w-2xl mx-auto rounded-2xl border border-hijau-tua/20 bg-hijau-tua/5 dark:bg-hijau-tua/10 p-8 text-center">
+            <div className="inline-flex items-center gap-2 mb-5">
+              <span className="h-px w-6 bg-emas" />
+              <span className="text-xs font-bold uppercase tracking-[0.12em] text-emas-tua dark:text-emas">
+                Harapan Kami
+              </span>
+              <span className="h-px w-6 bg-emas" />
+            </div>
+            <p className="text-[15px] text-gelap/70 dark:text-white/65 leading-relaxed mb-4">
+              Melalui seluruh program kerja yang telah dirancang, KKN Kelompok 27 Universitas Bengkulu
+              berharap dapat memberikan manfaat nyata bagi masyarakat Desa Lokasi Baru —
+              meningkatkan kualitas lingkungan, kesehatan, literasi digital, serta partisipasi masyarakat
+              dalam pembangunan desa yang berkelanjutan.
             </p>
-            <p className="text-gelap/75 dark:text-white/70 leading-relaxed mb-6">
-              Dengan semangat kebersamaan dan pengabdian, mahasiswa KKN Kelompok 27 berkomitmen untuk menjadi mitra masyarakat dalam mewujudkan desa yang lebih sehat, bersih, cerdas, dan berdaya saing.
-            </p>
-            <blockquote className="text-xl font-black text-hijau-tua dark:text-hijau-segar italic">
-              "Bersatu dalam karya, tumbuh bersama masyarakat."
+            <blockquote className="text-lg font-black text-hijau-tua dark:text-hijau-segar italic">
+              &ldquo;Bersatu dalam karya, tumbuh bersama masyarakat.&rdquo;
             </blockquote>
           </div>
         </section>

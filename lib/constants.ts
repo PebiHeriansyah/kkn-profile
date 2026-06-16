@@ -20,7 +20,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Program Kerja', href: '/program' },
   { label: 'Timeline', href: '/timeline' },
   { label: 'Galeri', href: '/galeri' },
-  { label: 'Artikel', href: '/artikel' },
   { label: 'Anggota', href: '/anggota' },
   { label: 'Kontak', href: '/kontak' },
 ];

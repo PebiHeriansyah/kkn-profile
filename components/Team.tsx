@@ -3,8 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight, GraduationCap, Star } from 'lucide-react';
+import { GraduationCap, Star } from 'lucide-react';
 import { teamMembers, supervisor } from '@/lib/data/team';
 
 // Unsplash avatars by gender/style for realistic placeholder photos
@@ -126,8 +125,8 @@ export function Team() {
                   {member.faculty}
                 </p>
                 {member.quote && (
-                  <blockquote className="mt-3 text-xs italic text-gelap/60 dark:text-white/55 border-l-2 border-emas/40 pl-3">
-                    "{member.quote}"
+                  <blockquote className="mt-3 text-xs italic text-gelap/60 dark:text-white/55 border-l-2 border-emas/40 pl-3 leading-relaxed">
+                    &ldquo;{member.quote}&rdquo;
                   </blockquote>
                 )}
               </div>
@@ -165,22 +164,6 @@ export function Team() {
             </motion.div>
           ))}
         </div>
-
-        {/* Link to full team */}
-        <motion.div
-          className="mt-10 text-center"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.8 }}
-        >
-          <Link
-            href="/anggota"
-            className="group inline-flex items-center gap-2 text-sm font-bold text-hijau-tua dark:text-hijau-segar border-2 border-hijau-tua/30 dark:border-hijau-segar/30 hover:border-hijau-tua dark:hover:border-hijau-segar px-8 py-3.5 rounded-full transition-all duration-300 hover:bg-hijau-tua/6"
-          >
-            Profil Lengkap Tim
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

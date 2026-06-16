@@ -71,9 +71,9 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={cn(
-            'mt-4 max-w-2xl text-body leading-relaxed sm:text-subheading',
+            'mt-4 max-w-2xl text-base leading-relaxed',
             isCenter && 'mx-auto',
-            isDark ? 'text-white/60' : 'text-tanah',
+            isDark ? 'text-white/60' : 'text-gelap/60 dark:text-white/60',
           )}
         >
           {subtitle}

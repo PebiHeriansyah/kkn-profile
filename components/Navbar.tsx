@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { NAV_ITEMS, SITE_NAME } from '@/lib/constants';
+import { NAV_ITEMS } from '@/lib/constants';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Menu, X } from 'lucide-react';
 
@@ -42,17 +43,15 @@ export function Navbar() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav className="flex h-16 items-center justify-between lg:h-20" aria-label="Navigasi utama">
             {/* Logo */}
-            <Link
-              href="/"
-              className={cn(
-                'flex items-center gap-2.5 font-extrabold text-base lg:text-lg tracking-tight transition-colors',
-                solid ? 'text-hijau-tua dark:text-white' : 'text-white',
-              )}
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emas text-gelap text-xs font-black shadow-glow-emas">
-                KKN
-              </span>
-              <span className="hidden sm:block">{SITE_NAME}</span>
+            <Link href="/" className="flex items-center transition-opacity hover:opacity-85">
+              <Image
+                src="/images/logo/logo.png"
+                alt="Logo KKN"
+                width={120}
+                height={48}
+                className="h-10 w-auto object-contain"
+                priority
+              />
             </Link>
 
             {/* Desktop Links */}

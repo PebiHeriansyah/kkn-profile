@@ -100,10 +100,10 @@ export function Programs() {
             <motion.article
               key={prog.id}
               variants={cardAnim}
-              className="group relative bg-background dark:bg-gelap rounded-2xl overflow-hidden border border-kapur-gelap dark:border-white/8 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-400"
+              className="group relative bg-background dark:bg-gelap rounded-2xl overflow-hidden border border-kapur-gelap dark:border-white/8 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-400 flex flex-col"
             >
               {/* Image */}
-              <div className="relative h-52 overflow-hidden">
+              <div className="relative h-48 overflow-hidden shrink-0">
                 <Image
                   src={PROGRAM_IMAGES[prog.id] || 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop'}
                   alt={prog.title}
@@ -114,7 +114,7 @@ export function Programs() {
                 <div className="absolute inset-0 bg-gradient-to-t from-gelap/60 to-transparent" />
 
                 {/* Category badge */}
-                <span className={`absolute top-3 left-3 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full ${CATEGORY_COLORS[prog.category]}`}>
+                <span className={`absolute top-3 left-3 text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full ${CATEGORY_COLORS[prog.category]}`}>
                   {CATEGORY_LABELS[prog.category]}
                 </span>
 
@@ -127,19 +127,19 @@ export function Programs() {
                 )}
               </div>
 
-              {/* Content */}
-              <div className="p-5">
-                <h3 className="text-base font-bold text-gelap dark:text-white mb-2 line-clamp-1 group-hover:text-hijau-tua dark:group-hover:text-hijau-segar transition-colors">
+              {/* Content — flex-col fill so meta sticks to bottom */}
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="text-sm font-bold text-gelap dark:text-white mb-2 line-clamp-2 leading-snug group-hover:text-hijau-tua dark:group-hover:text-hijau-segar transition-colors">
                   {prog.title}
                 </h3>
-                <p className="text-sm text-gelap/60 dark:text-white/55 leading-relaxed line-clamp-2 mb-4">
+                <p className="text-sm text-gelap/60 dark:text-white/55 leading-relaxed line-clamp-3 flex-1">
                   {prog.description}
                 </p>
 
-                {/* Meta */}
-                <div className="flex items-center gap-4 text-xs text-gelap/45 dark:text-white/40 pt-4 border-t border-kapur-gelap dark:border-white/8">
+                {/* Meta — always at bottom */}
+                <div className="flex items-center gap-4 text-xs text-gelap/45 dark:text-white/40 pt-4 mt-4 border-t border-kapur-gelap dark:border-white/8">
                   {prog.participants && (
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1.5 shrink-0">
                       <Users className="h-3.5 w-3.5" />
                       {prog.participants} peserta
                     </span>
